@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Our Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>OurWebsite</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+                <li><a href="signup.html" class="nav-link btn-signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel Section -->
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide active">
+                    <img src="https://picsum.photos/seed/hero1/1920/800.jpg" alt="Hero Image 1">
+                    <div class="slide-content">
+                        <h1>Welcome to Our Platform</h1>
+                        <p>Discover amazing services and solutions tailored for you</p>
+                        <button class="cta-button">Get Started</button>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/hero2/1920/800.jpg" alt="Hero Image 2">
+                    <div class="slide-content">
+                        <h1>Innovative Solutions</h1>
+                        <p>Transform your business with cutting-edge technology</p>
+                        <button class="cta-button">Learn More</button>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/hero3/1920/800.jpg" alt="Hero Image 3">
+                    <div class="slide-content">
+                        <h1>Join Our Community</h1>
+                        <p>Connect with thousands of satisfied customers worldwide</p>
+                        <button class="cta-button">Join Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Controls -->
+            <button class="carousel-arrow prev" onclick="changeSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-arrow next" onclick="changeSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Carousel Dots -->
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-box" style="background-image: url('https://picsum.photos/seed/feature1/400/300.jpg');">
+                    <div class="feature-overlay">
+                        <h3>Professional Service</h3>
+                        <p>Expert solutions for your business needs</p>
+                    </div>
+                </div>
+                <div class="feature-box" style="background-image: url('https://picsum.photos/seed/feature2/400/300.jpg');">
+                    <div class="feature-overlay">
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock assistance whenever you need it</p>
+                    </div>
+                </div>
+                <div class="feature-box" style="background-image: url('https://picsum.photos/seed/feature3/400/300.jpg');">
+                    <div class="feature-overlay">
+                        <h3>Affordable Plans</h3>
+                        <p>Flexible pricing options to fit your budget</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>OurWebsite</h3>
+                    <p>Your trusted partner for digital solutions</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OurWebsite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlideIndex = (index + slides.length) % slides.length;
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+        }
+
+        function currentSlideFunc(index) {
+            showSlide(index - 1);
+        }
+
+        // Auto-play carousel
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
